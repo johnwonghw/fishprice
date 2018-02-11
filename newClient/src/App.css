@@ -1,32 +1,175 @@
-nav.affix {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:10;
-}
+/* Main working CSS file. */
+
+/* blue: #0f698d */
+/* white: #fbfbfb */
 
 body {
+  background-color: #fbfbfb;
+  color: #0f698d;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.fish-button {
+  background-color: #0f698d;
+  border-radius: 30px;
+  border: 3px solid #0f698d;
+  color: #fbfbfb;
+  padding: 15px 45px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.fish-button:hover {
+  background-color: transparent;
+  color: #0f698d;
+  transition: all 0.2s;
+}
+
+.onboard {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.onboard .welcome-message {
+  text-align: center;
+}
+
+.onboard .row {
+  margin-bottom: 40px;
+}
+
+select,
+.select-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+
+
+.onboard .logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 50px auto;
+}
+
+.onboard .welcome {
+  font-weight: bold;
+}
+
+.onboard .tagline {
+  font-size: 16px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.select-container select {
+  margin: 0 0 15px 0;
+}
+
+.select-container .select-wrapper {
+  position: relative;
+}
+
+.select-container .select-wrapper i {
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #0f698d;
+}
+
+.select-container label {
+  color: #91a1b4;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px 0;
+  margin-bottom: 0;
+  letter-spacing: 0.7px;
+}
+
+.select-container h2 {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.select-container .form-group {
+  display: flex;
+  flex-flow: column;
+}
+
+.faded-icon {
+  position: absolute;
+  height: auto;
+  width: 150px;
+  bottom: 150px;
+  left: calc(50% - 75px);
+}
+
+.form-control {
+  box-shadow: none;
+  border-color: #e0e7ee;
+  color: #0f698d;
+  font-weight: 400;
+}
+
+.select-container .btn {
+  max-width: 25%;
+}
+
+footer {
+  background-image: url('./assets/images/wave-large.png');
+  background-size: cover;
+  background-position: 100% 100%;;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 100%;
+}
+
+footer span {
+  right: 5px;
+  position: absolute;
+  bottom: 5px;
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+.button-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
   line-height: 1;
 }
 
-.divider {
-	width:100%;
-	text-align:center;
+.button-navigation i,
+.button-navigation button {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0px;
+  transition: all 0.2s;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
-.divider hr {
-	margin-left:auto;
-	margin-right:auto;
-	width:30%;
-
-}
-.sticky { /* https://foundation.zurb.com/forum/posts/50229-fixing-the-sticky-dropdown-z-index-issue */
-    z-index: 5;
-}
-
-.navbar-fixed {
-	top: 0;
-	z-index: 10;
-	position: fixed;
-	width: 100%;
+.button-navigation i:hover,
+.button-navigation button:hover {
+  opacity: 0.7;
+  transition: all 0.2s;
 }

@@ -8,6 +8,9 @@ import {
 } from 'react-router-dom'
 import FilterLink from './components/FilterLink';
 import Home from './Pages/Home';
+import Species from './Pages/Species';
+import LocationPage from './Pages/Location';
+import Pricing from './Pages/Pricing';
 // import ResetPassword from './Pages/ResetPassword';
 
 import { getSiteString, getSiteLanguages } from './API';
@@ -27,6 +30,20 @@ class App extends Component {
 				height:window.innerHeight
 			});
         });
+
+		this.setData("species",[
+			'Koho Salmon',
+			'Lobster',
+			'Tiger Shrimp',
+			'Pink Salmon'
+	    ]);
+		this.setData("locations",[
+	    	'British Columbia',
+			'Prince Edward Island',
+			'Nova Scotia',
+			'New Brunswick',
+			'Quebec'
+	    ]);
     }
 
     render() {
@@ -35,11 +52,16 @@ class App extends Component {
         var vmin = Math.min(windowWidth, windowHeight);
 
         var fontSize = 16 + Math.pow(Math.max(vmin - 320, 0), 0.5) / 4;
-		console.log(fontSize);
+		//console.log(fontSize);
 
         return (
             <Router>
-				<Route exact path="/" component={Home}/>
+				<div>
+					<Route exact path="/" component={Home}/>
+					<Route exact path="/species" component={Species}/>
+					<Route exact path="/location" component={LocationPage}/>
+					<Route exact path="/pricing" component={Pricing}/>
+				</div>
             </Router>
         );
     }
