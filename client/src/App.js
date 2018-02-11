@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Onboard from './containers/Onboard/Onboard';
+import Prices from './containers/Prices/Prices';
 
 class App extends Component {
 
@@ -18,9 +19,15 @@ class App extends Component {
   }
 
   setFinalLocation = (location) => {
-    console.log(location);
     this.setState({
       locationName: location
+    });
+  }
+
+  showPrices = (resultsCreated) => {
+    console.log("test " + resultsCreated)
+    this.setState({
+      prices: resultsCreated
     });
   }
 
@@ -31,9 +38,9 @@ class App extends Component {
         { this.state.onboard ? <Onboard 
           setFinalSpecies={this.setFinalSpecies}
           setFinalLocation={this.setFinalLocation}
+          showPrices={this.showPrices}
         /> : null }
-        <footer>
-        </footer>
+        { this.state.prices ? <Prices /> : null }
       </div>
     );
   }
