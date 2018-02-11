@@ -31,7 +31,6 @@ class CurrentPage extends Component {
 
 	submitSellOrder = (e) => {
 		e.preventDefault();
-		
 		var url = ''
 		var postData = {};
 		postData['species'] = this.getData('sellSelectedSpecies');
