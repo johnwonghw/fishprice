@@ -16,10 +16,32 @@ class CurrentPage extends Component {
         var jQuery = window['jQuery'];
     }
 
-	
+	// getLocationsList = () => {
+	// 	try {
+	// 		const locationsList = this.getData("locationsList");
+	// 		console.log('lloc', locationsList)
+	// 		return locationsList
+	// 	} catch (err) {
+	// 		console.log('er')
+	// 		return this.getLocalLocationsList()
+	// 	}
+	// }
+
+	// getLocalLocationsList = () => {
+	// 	try {
+	// 		const locationsList = this.retrieveData("locationsList");
+	// 		return locationsList
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// }
+
     render(){
         var jQuery = window['jQuery'];
-		var locations = this.getData("locations");
+		var locations = this.getData("locationsList");
+		if (locations == null) {
+			locations = this.retrieveData("locationsList")
+		}
 
         return(
             <div>
@@ -58,23 +80,50 @@ class CurrentPage extends Component {
 		var selectedLocation = event.target.value;
 		console.log('this is the location: ' + selectedLocation)
 		this.setData("selectedLocation", selectedLocation);
+		this.saveData("selectedLocation", selectedLocation);
 	}
 	
 	onNextClicked = (event) => {
 		var currentLocation = this.getData('selectedLocation')
 		var selectedSpecies = this.getData('selectedSpecies')
-		var url = `http://34.201.47.219/api/getPrice?&species=${selectedSpecies}&areaName=${currentLocation}`
 
-		console.log(url)
+		// if (currentLocation == null) {
+		// 	currentLocation = this.retrieveData('selectedLocation')
+		// }
+		// if (selectedSpecies == null) {
+		// 	selectedSpecies = this.retrieveData('selectedSpecies')
+		// }
 
-		axios.get(url)
+		if (currentLocation == null) {
+			alert('Please select a location')
+		} else {
+		var coreDataUrl = `http://34.201.47.219/api/getPrice?&species=${selectedSpecies}&areaName=${currentLocation}`
+
+		var weatherDataUrl = `https://api.openweathermap.org/data/2.5/weather?q=Alaska&appid=330f0ff57716437fcf04c60a7902ab8e`
+
+		console.log('coreDataUrl', coreDataUrl)
+		console.log('weatherDataUrl', weatherDataUrl)
+
+		axios.get(coreDataUrl)
 		.then((res) => {
 			if (res['status'] === 200) {
 				this.setData('outputList', res['data'])
 			}
 		})
+
+		axios.get(weatherDataUrl)
+		.then((res) => {
+			if (res['status'] === 200) {
+				this.setData('weather', res.data.weather[0].main)
+				this.setData('min_temp', (res.data.main.temp_min - 273.15))
+				this.setData('max_temp', (res.data.main.temp_max - 273.15))
+			}
+		})
+
+		axios
 		const { history } = this.props;
 		history.push("/pricing");
+		}
 	}
 
 	onPrevClicked = (event) => {

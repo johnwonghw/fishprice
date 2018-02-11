@@ -13,11 +13,30 @@ class CurrentPage extends Component {
         var jQuery = window['jQuery'];
     }
 
+	// getSpeciesList = () => {
+	// 	try {
+	// 		return this.getData("speciesList");
+	// 	} catch (err) {
+	// 		return this.getLocalSpeciesList()
+	// 	}
+	// }
+
+	// getLocalSpeciesList = () => {
+	// 	try {
+	// 		return this.retrieveData("speciesList");
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// }
+
     render(){
         var jQuery = window['jQuery'];
-		var species = this.getData("species");
-		console.log(species)
-        return(
+		var species = this.getData("speciesList");
+		if (species == null) {
+			species = this.retrieveData("speciesList")
+		}
+
+		return(
             <div>
 				<form onSubmit={this.props.onSubmitSpecies}>
 					<div className="container onboard">
@@ -61,11 +80,15 @@ class CurrentPage extends Component {
 		// 	selectedSpecies: selectedSpecies
 		// });
 		this.setData("selectedSpecies", selectedSpecies);
-
+		// this.saveData("selectedSpecies", selectedSpecies);
     }
 	onNextClicked =(event)=>{
-		const { history } = this.props;
-		history.push("/location");
+		if (this.getData("selectedSpecies") == null) {
+			alert('Please select a fish species')
+		} else {
+			const { history } = this.props;
+			history.push("/location");	
+		}
 	}
 
 	onPrevClicked = (event) => {

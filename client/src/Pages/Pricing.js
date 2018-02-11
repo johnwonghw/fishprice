@@ -35,12 +35,16 @@ class CurrentPage extends Component {
         return(
             <div>
 				<div>
-					<img src={fish} alt="A fish" />
-					<h2>Here is the Market Suggested Price for {selectedSpecies} in {selectedLocation}: </h2>
-					<p>${this.estimatePrice(outputList, selectedLocation, selectedSpecies)} per pound</p>
 					<div className="button-navigation">
 						<div onClick={this.onPrevClicked}><i className="fas fa-chevron-left"></i></div>
 						<button type="submit" onClick={this.onNextClicked}>Home</button>
+					</div>
+					<img src={fish} alt="A fish" />
+					<h2>Here is the Market Suggested Price for {selectedSpecies} in {selectedLocation}: </h2>
+					<p>${this.estimatePrice(outputList, selectedLocation, selectedSpecies)} per pound</p>
+					<div className="btn-group">
+						<button className="btn btn-primary" onClick={this.onExplanationClick}>How Estimated</button>
+						<button className="btn btn-primary" onClick={this.onMarketplaceClick}>Marketplace</button>
 					</div>
 				</div>
             </div>
@@ -59,14 +63,24 @@ class CurrentPage extends Component {
 
 
 	}
-	onPrevClicked =(event) => {
+	onPrevClicked = (event) => {
 		const { history } = this.props;
 		history.push("/location")
 	}
 
-	onNextClicked =(event) => {
+	onNextClicked = (event) => {
 		const { history } = this.props;
 		history.push("/");
+	}
+
+	onExplanationClick = (event) => {
+		const { history } = this.props;
+		history.push("/explanation");
+	}
+
+	onMarketplaceClick = (event) => {
+		const { history } = this.props;
+		history.push("/marketplace");
 	}
 }
 export default connect(mapStateToProps)(CurrentPage);

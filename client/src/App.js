@@ -12,6 +12,7 @@ import Species from './Pages/Species';
 import LocationPage from './Pages/Location';
 import Pricing from './Pages/Pricing';
 import Marketplace from './Pages/Marketplace';
+import Explanation from './Pages/Explanation';
 
 // import ResetPassword from './Pages/ResetPassword';
 
@@ -38,14 +39,16 @@ class App extends Component {
 		axios.get('http://34.201.47.219/api/getSpecies')
 		.then((res) => {
 			if (res['status'] === 200) {
-				this.setData('species', res['data'])
+				this.setData('speciesList', res['data'])
+				this.saveData('speciesList', res['data'])
 			}
 		})
 
 		axios.get('http://34.201.47.219/api/getLocations')
 		.then((res) => {
 			if (res['status'] === 200) {
-				this.setData('locations', res['data'])
+				this.setData('locationsList', res['data'])
+				this.saveData('locationsList', res['data'])
 			}
 		})
     }
@@ -66,6 +69,7 @@ class App extends Component {
 					<Route exact path="/location" component={LocationPage}/>
 					<Route exact path="/pricing" component={Pricing}/>
 					<Route exact path="/marketplace" component={Marketplace}/>
+					<Route exact path="/explanation" component={Explanation}/>
 				</div>
             </Router>
         );
