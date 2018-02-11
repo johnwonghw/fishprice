@@ -23,35 +23,41 @@ class ReportPrice extends Component {
     }
 
     return (
-      <div className="col-xs-12 col-sm-8 col-sm-offset-2">
-        <h2>Input ur post!</h2>
-
+      <div className="col-xs-12 col-sm-8 col-sm-offset-2 report-price">
+        <h2>Tell us about your recent sale.</h2>
         <div className="form-group">
           <h4>What fish did you sell?</h4>
           <label>e.g. Coho</label>
-          <select id="species-select" defaultValue="0" onChange={this.props.onSpeciesChanged} className="form-control">
-            <option disabled value="0"> Select </option>
-            {
-              species.map((currentSpecies, index) => {
-                return (
-                  <option key={index} value={currentSpecies}>{currentSpecies}</option>
-                )
-              })
-            }
-          </select>
+          <div className="select-wrapper">
+            <i className="fas fa-chevron-down"></i>
+            <select id="species-select" defaultValue="0" onChange={this.props.onSpeciesChanged} className="form-control">
+              <option disabled value="0"> Select </option>
+              {
+                species.map((currentSpecies, index) => {
+                  return (
+                    <option key={index} value={currentSpecies}>{currentSpecies}</option>
+                  )
+                })
+              }
+            </select>
+          <div>
         </div>
-
+  </div>
+  </div>
         <div className="form-group">
           <h4>Where did you fish?</h4>
           <label>e.g. Bristol Bay</label>
-          <select id="location-select" defaultValue="0" onChange={this.props.onLocationChanged} className="form-control">
-            <option disabled value="0"> Select </option>
-            {locations.map((location, index) => {
-              return (
-                <option key={index} value={location}>{location}</option>
-              )
-            })}
-          </select>
+          <div className="select-wrapper">
+            <i className="fas fa-chevron-down"></i>
+            <select id="location-select" defaultValue="0" onChange={this.props.onLocationChanged} className="form-control">
+              <option disabled value="0"> Select </option>
+              {locations.map((location, index) => {
+                return (
+                  <option key={index} value={location}>{location}</option>
+                )
+              })}
+            </select>
+          </div>
         </div>
 
 
@@ -63,7 +69,7 @@ class ReportPrice extends Component {
 
           <div className="form-group">
             <h4>Your Contact</h4>
-            <input type="text" className="form-control" name="phone" placeholder="Your Phone/Email" onChange={this.props.textChange} />
+            <input type="text" className="form-control" name="phone" placeholder="Your Phone Number" onChange={this.props.textChange} />
           </div>
 
           <div className="form-group">
@@ -86,7 +92,6 @@ class ReportPrice extends Component {
 
           <button className="btn btn-primary" onClick={this.props.submitForumPost}>Submit!</button>
         </form>
-        {/* <div className="footerFakePage"></div> */}
       </div>
     );
   }

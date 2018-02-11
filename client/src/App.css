@@ -95,7 +95,18 @@ select,
   pointer-events: none;
 }
 
-.select-container label {
+.select-wrapper i,
+.select-wrapper svg {
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #0f698d;
+  pointer-events: none;
+}
+
+.select-container label,
+.report-price label {
   color: #91a1b4;
   font-weight: bold;
   font-size: 12px;
@@ -344,4 +355,17 @@ footer span {
   text-align: center;
   margin-top: 30px;
   font-weight: 500;
+}
+
+.report-price .select-wrapper {
+  position: relative;
+}
+
+.report-price h2 {
+  margin-bottom: 20px;
+}
+
+.report-price ::-webkit-input-placeholder { 
+  color: #084862;
+  opacity: 0.7;
 }
