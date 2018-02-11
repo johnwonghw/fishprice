@@ -9,11 +9,14 @@ import { fallbackValue, mkVector } from '../Tools';
 import logo from '../assets/images/fish.png';
 import fadedFish from '../assets/images/fish-faded.png';
 import fadedHelm from '../assets/images/helm.png';
+import axios from 'axios';
+
 class CurrentPage extends Component {
     componentDidMount(){
         var jQuery = window['jQuery'];
     }
 
+	
     render(){
         var jQuery = window['jQuery'];
 		var locations = this.getData("locations");
@@ -55,9 +58,21 @@ class CurrentPage extends Component {
 		var selectedLocation = event.target.value;
 		console.log('this is the location: ' + selectedLocation)
 		this.setData("selectedLocation", selectedLocation);
+	}
+	
+	onNextClicked = (event) => {
+		var currentLocation = this.getData('selectedLocation')
+		var selectedSpecies = this.getData('selectedSpecies')
+		var url = `http://34.201.47.219/api/getPrice?&species=${selectedSpecies}&areaName=${currentLocation}`
 
-    }
-	onNextClicked =(event)=>{
+		console.log(url)
+
+		axios.get(url)
+		.then((res) => {
+			if (res['status'] === 200) {
+				this.setData('outputList', res['data'])
+			}
+		})
 		const { history } = this.props;
 		history.push("/pricing");
 	}

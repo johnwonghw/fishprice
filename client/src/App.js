@@ -19,6 +19,8 @@ import { connect } from 'react-redux';
 import { fallbackValue } from './Tools';
 import "./App.css";
 
+import axios from 'axios';
+
 class App extends Component {
     componentWillMount(){
         var jQuery = window['jQuery'];
@@ -31,19 +33,19 @@ class App extends Component {
 			});
         });
 
-		this.setData("species",[
-			'Koho Salmon',
-			'Lobster',
-			'Tiger Shrimp',
-			'Pink Salmon'
-	    ]);
-		this.setData("locations",[
-	    	'British Columbia',
-			'Prince Edward Island',
-			'Nova Scotia',
-			'New Brunswick',
-			'Quebec'
-	    ]);
+		axios.get('http://34.201.47.219/api/getSpecies')
+		.then((res) => {
+			if (res['status'] === 200) {
+				this.setData('species', res['data'])
+			}
+		})
+
+		axios.get('http://34.201.47.219/api/getLocations')
+		.then((res) => {
+			if (res['status'] === 200) {
+				this.setData('locations', res['data'])
+			}
+		})
     }
 
     render() {
