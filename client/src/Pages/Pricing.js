@@ -41,7 +41,8 @@ class CurrentPage extends Component {
 				</div>
             </div>
         );
-    }
+	}
+	
 	onChangeSpecies = (event) => {
 
 		var selectedSpecies = event.target.value;
@@ -50,8 +51,8 @@ class CurrentPage extends Component {
 		// 	selectedSpecies: selectedSpecies
 		// });
 		this.setData("selectedSpecies", selectedSpecies);
-
-    }
+	}
+	
 	onNextClicked =(event)=>{
 		const { history } = this.props;
 		history.push("/location");
