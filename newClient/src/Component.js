@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { setData } from './actions';
-import strings from './defaults/strings';
 import { fallbackValue } from './Tools';
 import handleMessage from './API/messageBuilder';
 
@@ -15,14 +14,6 @@ class ComponentClass extends Component {
 	}
 	getData = (fieldName)=>{
 		return fallbackValue(null, this, "props", "data", fieldName);
-	}
-
-	saveActiveLanguage = (languageObject)=>{
-		localStorage.currentLanguage = JSON.stringify(languageObject);
-	}
-	translate = (folderName, itemName, defaultValue = "")=>{
-		var langCode = fallbackValue("English", this, "props", "data", "language", "active", "label");
-		return fallbackValue(defaultValue, strings, folderName, itemName, langCode);
 	}
 	saveData = (name, data)=>{
 		localStorage[name] = JSON.stringify(data);

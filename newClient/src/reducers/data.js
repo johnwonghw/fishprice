@@ -1,4 +1,3 @@
-import strings from '../defaults/strings';
 import { fallbackValue } from '../Tools';
 
 var initialState = {

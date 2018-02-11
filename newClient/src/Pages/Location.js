@@ -33,7 +33,7 @@ class CurrentPage extends Component {
 									<label htmlFor="location-select">e.g. British Columbia</label>
 									<div className="select-wrapper">
 										<i className="fas fa-chevron-down"></i>
-										<select id="location-select" onChange={this.onLocationChanged} className="form-control">
+										<select id="location-select" defaultValue="0" onChange={this.onLocationChanged} className="form-control">
 											<option disabled value="0"> Select </option>
 											{locations.map((location, index) => {
 												return (

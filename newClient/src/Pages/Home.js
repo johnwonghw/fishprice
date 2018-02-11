@@ -31,5 +31,9 @@ class CurrentPage extends Component {
             </div>
         );
     }
+    startOnboard=(event)=>{
+        const { history } = this.props;
+        history.push("species");
+    }
 }
 export default connect(mapStateToProps)(CurrentPage);
