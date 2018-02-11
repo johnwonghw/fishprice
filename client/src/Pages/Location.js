@@ -43,6 +43,9 @@ class CurrentPage extends Component {
 			locations = this.retrieveData("locationsList")
 		}
 
+
+		var selectedSpecies = this.getData("selectedSpecies");
+
         return(
             <div>
 				<form onSubmit={this.props.onSubmitLocation}>
@@ -54,7 +57,7 @@ class CurrentPage extends Component {
 						<div className="row">
 							<div className="col-xs-12 col-sm-8 col-sm-offset-2 select-container">
 								<div className="form-group">
-									<h2>Where are you <br/> fishing today?</h2>
+									<h2>Where are you <br/> fishing {selectedSpecies ? `for ${selectedSpecies}` : null} today?</h2>
 									<label htmlFor="location-select">e.g. British Columbia</label>
 									<div className="select-wrapper">
 										<i className="fas fa-chevron-down"></i>

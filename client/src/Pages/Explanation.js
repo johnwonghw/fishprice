@@ -42,7 +42,7 @@ class CurrentPage extends Component {
   
 	onLocationChanged = (event) => {
 		var sellSelectedLocation = event.target.value;
-		console.log('this is the location: ' + sellSelectedLocation)
+		console.log('Location chosen: ' + sellSelectedLocation)
 		this.setData("sellSelectedLocation", sellSelectedLocation);
 	}
 

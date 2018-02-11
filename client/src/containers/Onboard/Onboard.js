@@ -43,7 +43,7 @@ class Onboard extends Component {
   }
 
   onChangeSpecies = (event) => {
-    console.log('this is the species ' + event.target.value)
+    console.log('Species chosen: ' + event.target.value);
     this.setState({
       selectedSpecies: event.target.value
     });
@@ -51,7 +51,7 @@ class Onboard extends Component {
 
   
   onChangeLocation = (event) => {
-    console.log('this is the location ' + event.target.value)
+    console.log('Location chosen: ' + event.target.value);
     this.setState({
       selectedLocation: event.target.value
     });
@@ -119,6 +119,7 @@ class Onboard extends Component {
           onSubmitLocation={this.onSubmitLocation}
           onChangeLocation={this.onChangeLocation}
           onReturnToSpecies={this.onReturnToSpecies}
+          chosenSpecies={this.state.chosenSpecies}
           /> : null }
         
       </div>

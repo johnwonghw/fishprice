@@ -69,6 +69,9 @@ class App extends Component {
 					<Route exact path="/pricing" component={Pricing}/>
 					<Route exact path="/marketplace" component={Marketplace}/>
 					<Route exact path="/explanation" component={Explanation}/>
+					<footer>
+						<span>&copy; 2018 FishPrice</span>
+					</footer>
 				</div>
             </Router>
         );

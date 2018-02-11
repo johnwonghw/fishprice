@@ -75,12 +75,8 @@ class CurrentPage extends Component {
 	onChangeSpecies = (event) => {
 
 		var selectedSpecies = event.target.value;
-		console.log('this is the species: ' + selectedSpecies)
-		// this.setState({
-		// 	selectedSpecies: selectedSpecies
-		// });
+		console.log('Species chosen: ' + selectedSpecies)
 		this.setData("selectedSpecies", selectedSpecies);
-		// this.saveData("selectedSpecies", selectedSpecies);
     }
 	onNextClicked =(event)=>{
 		if (this.getData("selectedSpecies") == null) {
