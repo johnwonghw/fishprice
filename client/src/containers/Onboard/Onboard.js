@@ -9,7 +9,7 @@ class Onboard extends Component {
     choosingSpecies: false,
     choosingLocation:false,
     started: false,
-    finished: false,
+    priceCreated: false,
     species: [
       'Koho Salmon',
       'Lobster',
@@ -60,11 +60,15 @@ class Onboard extends Component {
   onSubmitLocation = (event) => {
     this.setState({
       choosingLocation: false,
-      finished: true
     });
+    const nextPriceCreated = !this.state.priceCreated
+    this.setState(prevState => ({
+        priceCreated:nextPriceCreated
+      }));
     event.preventDefault();
     this.props.setFinalLocation(this.state.selectedLocation);
-  }
+    this.props.showPrices(nextPriceCreated);
+  } 
 
   onReturnHome = () => {
     this.setState({

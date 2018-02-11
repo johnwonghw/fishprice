@@ -19,9 +19,15 @@ class App extends Component {
   }
 
   setFinalLocation = (location) => {
-    console.log(location);
     this.setState({
       locationName: location
+    });
+  }
+
+  showPrices = (resultsCreated) => {
+    console.log("test " + resultsCreated)
+    this.setState({
+      prices: resultsCreated
     });
   }
 
@@ -32,6 +38,7 @@ class App extends Component {
         { this.state.onboard ? <Onboard 
           setFinalSpecies={this.setFinalSpecies}
           setFinalLocation={this.setFinalLocation}
+          showPrices={this.showPrices}
         /> : null }
         
         {this.state.prices ? <Prices /> : null }
