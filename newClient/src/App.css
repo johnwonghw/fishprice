@@ -1,0 +1,32 @@
+nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
+body {
+  line-height: 1;
+}
+
+.divider {
+	width:100%;
+	text-align:center;
+}
+
+.divider hr {
+	margin-left:auto;
+	margin-right:auto;
+	width:30%;
+
+}
+.sticky { /* https://foundation.zurb.com/forum/posts/50229-fixing-the-sticky-dropdown-z-index-issue */
+    z-index: 5;
+}
+
+.navbar-fixed {
+	top: 0;
+	z-index: 10;
+	position: fixed;
+	width: 100%;
+}
