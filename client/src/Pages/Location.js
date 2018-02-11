@@ -37,11 +37,15 @@ class CurrentPage extends Component {
 	// }
 
     render(){
-        var jQuery = window['jQuery'];
-		var locations = this.getData("locationsList");
-		if (locations == null) {
-			locations = this.retrieveData("locationsList")
-		}
+			var jQuery = window['jQuery'];
+			var locations = this.getData("locationsList");
+			if (locations == null) {
+				locations = this.retrieveData("locationsList")
+			}
+
+			var alertLocationsMessage = this.getData("alertLocationsToggle");
+
+			var selectedSpecies = this.getData("selectedSpecies");
 
         return(
             <div>
@@ -54,7 +58,7 @@ class CurrentPage extends Component {
 						<div className="row">
 							<div className="col-xs-12 col-sm-8 col-sm-offset-2 select-container">
 								<div className="form-group">
-									<h2>Where are you <br/> fishing today?</h2>
+									<h2>Where are you <br/> fishing {selectedSpecies ? `for ${selectedSpecies}` : null} today?</h2>
 									<label htmlFor="location-select">e.g. British Columbia</label>
 									<div className="select-wrapper">
 										<i className="fas fa-chevron-down"></i>
@@ -67,6 +71,7 @@ class CurrentPage extends Component {
 									        })}
 										</select>
 									</div>
+									<p>{alertLocationsMessage ? 'Please pick a location' : ''}</p>
 								</div>
 							</div>
 							<img src={fadedHelm} alt="A fish icon" className="faded-icon" />
@@ -84,6 +89,8 @@ class CurrentPage extends Component {
 	}
 	
 	onNextClicked = (event) => {
+		event.preventDefault();
+
 		var currentLocation = this.getData('selectedLocation')
 		var selectedSpecies = this.getData('selectedSpecies')
 
@@ -95,34 +102,35 @@ class CurrentPage extends Component {
 		// }
 
 		if (currentLocation == null) {
-			alert('Please select a location')
+			this.setData("alertLocationsToggle", true)
 		} else {
-		var coreDataUrl = `http://34.201.47.219/api/getPrice?&species=${selectedSpecies}&areaName=${currentLocation}`
+			this.setData("alertLocationsToggle", false)
+			var coreDataUrl = `http://34.201.47.219/api/getPrice?&species=${selectedSpecies}&areaName=${currentLocation}`
 
-		var weatherDataUrl = `https://api.openweathermap.org/data/2.5/weather?q=Alaska&appid=330f0ff57716437fcf04c60a7902ab8e`
+			var weatherDataUrl = `https://api.openweathermap.org/data/2.5/weather?q=Alaska&appid=330f0ff57716437fcf04c60a7902ab8e`
 
-		console.log('coreDataUrl', coreDataUrl)
-		console.log('weatherDataUrl', weatherDataUrl)
+			console.log('coreDataUrl', coreDataUrl)
+			console.log('weatherDataUrl', weatherDataUrl)
 
-		axios.get(coreDataUrl)
-		.then((res) => {
-			if (res['status'] === 200) {
-				this.setData('outputList', res['data'])
-			}
-		})
+			axios.get(coreDataUrl)
+			.then((res) => {
+				if (res['status'] === 200) {
+					this.setData('outputList', res['data'])
+				}
+			})
 
-		axios.get(weatherDataUrl)
-		.then((res) => {
-			if (res['status'] === 200) {
-				this.setData('weather', res.data.weather[0].main)
-				this.setData('min_temp', (res.data.main.temp_min - 273.15))
-				this.setData('max_temp', (res.data.main.temp_max - 273.15))
-			}
-		})
+			axios.get(weatherDataUrl)
+			.then((res) => {
+				if (res['status'] === 200) {
+					this.setData('weather', res.data.weather[0].main)
+					this.setData('min_temp', (res.data.main.temp_min - 273.15))
+					this.setData('max_temp', (res.data.main.temp_max - 273.15))
+				}
+			})
 
-		axios
-		const { history } = this.props;
-		history.push("/pricing");
+			axios
+			const { history } = this.props;
+			history.push("/pricing");
 		}
 	}
 

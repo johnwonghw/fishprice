@@ -35,6 +35,7 @@ class CurrentPage extends Component {
 		if (species == null) {
 			species = this.retrieveData("speciesList")
 		}
+		var alertSpeciesMessage = this.getData("alertSpeciesToggle");
 
 		return(
             <div>
@@ -52,7 +53,7 @@ class CurrentPage extends Component {
 									<h2>What are you <br /> fishing for today?</h2>
 									<label htmlFor="species-select">e.g. lobster</label>
 									<div className="select-wrapper">
-										<i className="fas fa-chevron-down"></i>
+										<i className="fa fa-chevron-down"></i>
 										<select id="species-select" defaultValue="0" onChange={this.onChangeSpecies} className="form-control">
 											<option disabled value="0"> Select </option>
 											{
@@ -63,6 +64,7 @@ class CurrentPage extends Component {
 											}
 										</select>
 									</div>
+									<p>{alertSpeciesMessage ? 'Pick Species' : ''}</p>
 								</div>
 							</div>
 							<img src={fadedFish} alt="A fish icon" className="faded-icon"/>
@@ -73,19 +75,17 @@ class CurrentPage extends Component {
         );
     }
 	onChangeSpecies = (event) => {
-
 		var selectedSpecies = event.target.value;
-		console.log('this is the species: ' + selectedSpecies)
-		// this.setState({
-		// 	selectedSpecies: selectedSpecies
-		// });
+		console.log('Species chosen: ' + selectedSpecies)
 		this.setData("selectedSpecies", selectedSpecies);
-		// this.saveData("selectedSpecies", selectedSpecies);
-    }
+	}
+	
 	onNextClicked =(event)=>{
+		event.preventDefault();
 		if (this.getData("selectedSpecies") == null) {
-			alert('Please select a fish species')
+			this.setData("alertSpeciesToggle", true)
 		} else {
+			this.setData("alertSpeciesToggle", false)
 			const { history } = this.props;
 			history.push("/location");	
 		}

@@ -11,6 +11,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.react-root {
+  position: relative;
+}
+
 .fish-button {
   background-color: #0f698d;
   border-radius: 30px;
@@ -27,6 +31,9 @@ body {
   transition: all 0.2s;
 }
 
+.forum-container {
+  padding-bottom: 150px;
+}
 .onboard {
   position: relative;
   height: 100vh;
@@ -78,15 +85,28 @@ select,
   position: relative;
 }
 
-.select-container .select-wrapper i {
+.select-container .select-wrapper i,
+.select-container .select-wrapper svg {
   font-size: 16px;
   position: absolute;
   top: 10px;
   right: 10px;
   color: #0f698d;
+  pointer-events: none;
 }
 
-.select-container label {
+.select-wrapper i,
+.select-wrapper svg {
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #0f698d;
+  pointer-events: none;
+}
+
+.select-container label,
+.report-price label {
   color: #91a1b4;
   font-weight: bold;
   font-size: 12px;
@@ -134,6 +154,7 @@ footer {
   right: 0;
   height: 200px;
   width: 100%;
+  pointer-events: none;
 }
 
 footer span {
@@ -142,6 +163,18 @@ footer span {
   bottom: 5px;
   opacity: 0.5;
   font-size: 10px;
+}
+
+.footerFakePage {
+  background-image: url(/static/media/wave-large.ea1aaba7.png);
+  background-size: cover;
+  background-position: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 100%;
 }
 
 .button-navigation {
@@ -153,9 +186,11 @@ footer span {
   justify-content: space-between;
   padding: 20px;
   line-height: 1;
+  z-index: 2;
 }
 
 .button-navigation i,
+.button-navigation svg,
 .button-navigation button {
   font-size: 20px;
   font-weight: bold;
@@ -169,7 +204,197 @@ footer span {
 }
 
 .button-navigation i:hover,
+.button-navigation svg:hover,
 .button-navigation button:hover {
   opacity: 0.7;
   transition: all 0.2s;
+}
+
+.comment {
+  background-color: #fbfbfb;
+  display: flex;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  z-index: 5;
+  position: relative;
+}
+
+.comment-header {
+  background-color: #0f698d;
+  border: 2px solid transparent;
+  border-bottom: right;
+  color: #fbfbfb;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.comment-header .comment-person-info {
+  align-items: center;
+  display: flex;
+  font-weight: 500;
+  flex-direction: column;
+  align-items: baseline;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.comment-person-name {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.comment-header .comment-person-info span {
+  font-size: 14px;
+}
+
+.comment-body {
+  border: 2px solid #e0e7ee;
+  border-left: none;
+  padding: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 65%;
+  padding-top: 25px;
+}
+
+.comment-body > p {
+  padding-top: 0px !important;
+}
+
+.forum-container .row {
+  padding-top: 50px;
+}
+
+.forum-container h2 {
+  padding-bottom: 20px;
+}
+
+.sold-for p {
+  font-size: 10px;
+  opacity: 0.7;
+  margin: 0px;
+}
+
+.sold-for p:first-of-type {
+  /* font-size: 12px; */
+  opacity: 1;
+}
+
+.sold-for p.sold-price {
+  font-size: 26px;
+  margin-bottom: 0px;
+  opacity: 1;
+}
+
+.sold-for .extra-info {
+  display: flex;
+}
+
+.sold-for .extra-info p:first-of-type {
+  opacity: 1;
+  margin-right: 2px;
+}
+
+.sold-for .extra-info p:last-of-type {
+  opacity: 0.7;
+}
+
+.forum-link {
+  display: block;
+  font-weight: bold;
+  opacity: 0.7;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+    font-size: 12px;
+}
+
+.forum-link:hover {
+  opacity: 1;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.pricing-page {
+  height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-page h2 span {
+  color: #084862;
+  font-weight: bold;
+}
+
+.pricing-page p.price {
+  font-size: 60px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.pricing-page p.price span {
+  font-size: 20px;
+}
+
+.pricing-page .fish-button {
+  margin: 25px auto 50px auto;
+}
+
+.pricing-page .fish-button:hover {
+  text-decoration: none;
+}
+
+.report-prompt {
+  font-weight: 18px;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+.report-price .select-wrapper {
+  position: relative;
+}
+
+.report-price h2 {
+  margin-bottom: 20px;
+}
+
+.report-price ::-webkit-input-placeholder { 
+  color: #91a1b4;
+  opacity: 0.7;
+}
+
+.report-price .fish-button {
+  margin-top: 20px;
+}
+
+.report-price span > h4 {
+  margin-left: 5px;
+}
+
+.report-price .form-control {
+  color: #91a1b4;
+}
+
+.arrow-container {
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
+.arrow-container:hover {
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.arrow-container svg, {
+  font-size: 70px !important;
 }

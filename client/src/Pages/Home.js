@@ -1,11 +1,7 @@
 import React from 'react';
 import Component, {mapStateToProps} from '../Component';
-import FilterLink from '../components/FilterLink';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { setLanguage } from '../actions';
 import { fallbackValue, mkVector } from '../Tools';
-//import { getUserInfo } from '../API';
 import logo from '../assets/images/fish.png';
 
 class CurrentPage extends Component {
@@ -25,6 +21,7 @@ class CurrentPage extends Component {
 					  <h1 className="welcome">Welcome to FishPrice.</h1>
 					  <h2 className="tagline">We help you swim through crowd sourcing.</h2>
 					  <button onClick={this.startOnboard} className="fish-button">Get Started</button>
+                      <a className="forum-link" onClick={this.jumpToForum}>Go to FishPrice Forum</a>
 					</div>
 				  </div>
 				</div>
@@ -34,6 +31,11 @@ class CurrentPage extends Component {
     startOnboard=(event)=>{
         const { history } = this.props;
         history.push("species");
+    }
+
+    jumpToForum = (event) => {
+        const { history } = this.props;
+        history.push("forum");
     }
 }
 export default connect(mapStateToProps)(CurrentPage);

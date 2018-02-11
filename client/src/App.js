@@ -3,15 +3,14 @@ import Component, { mapStateToProps } from './Component';
 import './App.css';
 import {
     BrowserRouter as Router,
-    Route,
-    Link
+    Route
 } from 'react-router-dom'
 import FilterLink from './components/FilterLink';
 import Home from './Pages/Home';
 import Species from './Pages/Species';
 import LocationPage from './Pages/Location';
 import Pricing from './Pages/Pricing';
-import Marketplace from './Pages/Marketplace';
+import Forum from './Pages/Forum';
 import Explanation from './Pages/Explanation';
 
 // import ResetPassword from './Pages/ResetPassword';
@@ -63,13 +62,16 @@ class App extends Component {
 
         return (
             <Router>
-				<div>
+				<div className="react-root">
 					<Route exact path="/" component={Home}/>
 					<Route exact path="/species" component={Species}/>
 					<Route exact path="/location" component={LocationPage}/>
 					<Route exact path="/pricing" component={Pricing}/>
-					<Route exact path="/marketplace" component={Marketplace}/>
+					<Route exact path="/forum" component={Forum}/>
 					<Route exact path="/explanation" component={Explanation}/>
+					<footer>
+						<span>&copy; 2018 FishPrice</span>
+					</footer>
 				</div>
             </Router>
         );
