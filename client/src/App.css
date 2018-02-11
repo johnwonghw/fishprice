@@ -32,7 +32,7 @@ body {
 }
 
 .forum-container {
-  height: 100vh;
+  padding-bottom: 150px;
 }
 .onboard {
   position: relative;
@@ -205,7 +205,7 @@ footer span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1;
+  width: 35%;
 }
 
 .comment-header .comment-person-info {
@@ -233,7 +233,7 @@ footer span {
   padding: 15px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  flex: 4;
+  width: 65%;
   padding-top: 25px;
 }
 
@@ -261,7 +261,7 @@ footer span {
 }
 
 .sold-for p.sold-price {
-  font-size: 30px;
+  font-size: 26px;
   margin-bottom: 0px;
   opacity: 1;
 }
@@ -277,4 +277,21 @@ footer span {
 
 .sold-for .extra-info p:last-of-type {
   opacity: 0.7;
+}
+
+.forum-link {
+  display: block;
+  font-weight: bold;
+  opacity: 0.7;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+    font-size: 12px;
+}
+
+.forum-link:hover {
+  opacity: 1;
+  text-decoration: none;
+  transition: all 0.2s;
 }
