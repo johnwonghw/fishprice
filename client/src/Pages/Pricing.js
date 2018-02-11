@@ -89,8 +89,8 @@ class CurrentPage extends Component {
 						</div>
 					</div>
 					<a href="#reportPostContainer" className="btn btn-primary">Report</a>
-
 				</div>
+
 				<div id="reportPostContainer" style={{"height": "100vh"}}>
 					<ReportPrice submitForumPost={this.submitForumPost} onLocationChanged={this.onLocationChanged} onSpeciesChanged={this.onSpeciesChanged} textChange={this.textChange} />
 				</div>
