@@ -55,7 +55,7 @@ class ReportPrice extends Component {
         </div>
 
 
-        <form style={{"margin-bottom": "30vh"}}>
+        <form style={{marginBottom: "30vh"}}>
           <div className="form-group">
             <h4>Your Name</h4>
             <input type="text" className="form-control" name="name" placeholder="Your Name" onChange={this.props.textChange} />
@@ -86,7 +86,7 @@ class ReportPrice extends Component {
 
           <button className="btn btn-primary" onClick={this.props.submitForumPost}>Submit!</button>
         </form>
-        <div className="footerFakePage"></div>
+        {/* <div className="footerFakePage"></div> */}
       </div>
     );
   }

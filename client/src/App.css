@@ -174,6 +174,7 @@ footer span {
   justify-content: space-between;
   padding: 20px;
   line-height: 1;
+  z-index: 2;
 }
 
 .button-navigation i,
@@ -306,4 +307,41 @@ footer span {
   opacity: 1;
   text-decoration: none;
   transition: all 0.2s;
+}
+
+.pricing-page {
+  height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-page h2 span {
+  color: #084862;
+  font-weight: bold;
+}
+
+.pricing-page p.price {
+  font-size: 60px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.pricing-page p.price span {
+  font-size: 20px;
+}
+
+.pricing-page .fish-button {
+  margin: 50px auto;
+}
+
+.pricing-page .fish-button:hover {
+  text-decoration: none;
+}
+
+.report-prompt {
+  font-weight: 18px;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 500;
 }

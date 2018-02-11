@@ -32,7 +32,7 @@ class Comments extends Component {
        buyer: 'My Belly',
        species: 'Coho'
      }
-   ]
+   ];
 
   render() {
     return (
