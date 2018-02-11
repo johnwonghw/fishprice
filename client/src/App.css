@@ -144,6 +144,18 @@ footer span {
   font-size: 10px;
 }
 
+.footerFakePage {
+  background-image: url(/static/media/wave-large.ea1aaba7.png);
+  background-size: cover;
+  background-position: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 100%;
+}
+
 .button-navigation {
   position: absolute;
   top: 0;
