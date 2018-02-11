@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setLanguage } from '../actions';
 import { fallbackValue, mkVector } from '../Tools';
-//import { getUserInfo } from '../API';
 import logo from '../assets/images/fish.png';
 import fadedFish from '../assets/images/fish-faded.png';
 import fadedHelm from '../assets/images/helm.png';
@@ -24,12 +23,10 @@ class CurrentPage extends Component {
 	}
 
 	quantityTextChange = (e) => {
-		console.log('selling', e.target.value, 'lbs')
-		this.setData('sellQuantity', e.target.value)
+		this.setData('sellQuantity', e.target.value);
 	}
 	priceTextChange = (e) => {
-		console.log('sell for $', e.target.value)
-		this.setData('sellPrice', e.target.value)
+		this.setData('sellPrice', e.target.value);
 	}
 
 	submitSellOrder = (e) => {
@@ -41,7 +38,6 @@ class CurrentPage extends Component {
 		postData['location'] = this.getData('sellSelectedLocation')
 		postData['price'] = this.getData('sellPrice');
 		postData['quantity'] = this.getData('sellQuantity');
-		console.log('postData', postData);
 		axios.post(url, postData)
 	}
 
@@ -100,12 +96,7 @@ class CurrentPage extends Component {
 	onChangeSpecies = (event) => {
 
 		var sellSelectedSpecies = event.target.value;
-		console.log('this is the species: ' + sellSelectedSpecies)
-		// this.setState({
-		// 	sellSelectedSpecies: sellSelectedSpecies
-		// });
 		this.setData("sellSelectedSpecies", sellSelectedSpecies);
-		// this.saveData("sellSelectedSpecies", sellSelectedSpecies);
     }
 
 	onPrevClicked = (event) => {

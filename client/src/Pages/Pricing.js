@@ -20,7 +20,6 @@ class CurrentPage extends Component {
 			outputList.sort((a, b) => {
 				return b.year - a.year
 			})
-			console.log('outpustList', outputList)
 			return outputList[0].price;
 		}
 		

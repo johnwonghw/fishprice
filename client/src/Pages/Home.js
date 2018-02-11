@@ -1,11 +1,7 @@
 import React from 'react';
 import Component, {mapStateToProps} from '../Component';
-import FilterLink from '../components/FilterLink';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { setLanguage } from '../actions';
 import { fallbackValue, mkVector } from '../Tools';
-//import { getUserInfo } from '../API';
 import logo from '../assets/images/fish.png';
 
 class CurrentPage extends Component {

@@ -3,8 +3,7 @@ import Component, { mapStateToProps } from './Component';
 import './App.css';
 import {
     BrowserRouter as Router,
-    Route,
-    Link
+    Route
 } from 'react-router-dom'
 import FilterLink from './components/FilterLink';
 import Home from './Pages/Home';
