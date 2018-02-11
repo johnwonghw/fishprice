@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Onboard from './containers/Onboard/Onboard';
+import Prices from './containers/Prices/Prices';
 
 class App extends Component {
 
@@ -32,6 +33,9 @@ class App extends Component {
           setFinalSpecies={this.setFinalSpecies}
           setFinalLocation={this.setFinalLocation}
         /> : null }
+        
+        {this.state.prices ? <Prices /> : null }
+
         <footer>
         </footer>
       </div>

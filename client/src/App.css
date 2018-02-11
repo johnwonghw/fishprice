@@ -42,13 +42,24 @@ body {
   max-width: 25%;
 }
 
-.select-container .button-navigation {
-  display: flex;
-  justify-content: space-between;
-}
-
 footer {
   position: absolute;
   height: 70px;
   width: 100%;
+}
+
+.button-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  line-height: 1;
+}
+
+.button-navigation i{
+  font-size: 20px;
+  font-weight: bold;
 }
