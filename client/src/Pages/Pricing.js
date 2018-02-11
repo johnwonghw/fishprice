@@ -9,14 +9,10 @@ import { fallbackValue, mkVector } from '../Tools';
 import logo from '../assets/images/fish.png';
 import fadedFish from '../assets/images/fish-faded.png';
 import fish from '../assets/images/fish.png';
-<<<<<<< HEAD
 import ReportPrice from '../components/ReportPrice';
 // import scrollToComponent from 'react-scroll-to-component';
 import axios from 'axios';
 
-=======
-import Comments from '../components/Comments/Comments';
->>>>>>> aa5ef93aa2174269f9087f833509578e5b040641
 
 class CurrentPage extends Component {
     componentDidMount(){
