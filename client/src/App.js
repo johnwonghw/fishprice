@@ -3,10 +3,34 @@ import './App.css';
 import Onboard from './containers/Onboard/Onboard';
 
 class App extends Component {
+
+  state = {
+    onboard: true,
+    prices: false,
+    speciesName: '',
+    locationName: ''
+  }
+
+  setFinalSpecies = (species) => {
+    this.setState({
+      speciesName: species
+    });
+  }
+
+  setFinalLocation = (location) => {
+    console.log(location);
+    this.setState({
+      locationName: location
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Onboard />
+        { this.state.onboard ? <Onboard 
+          setFinalSpecies={this.setFinalSpecies}
+          setFinalLocation={this.setFinalLocation}
+        /> : null }
       </div>
     );
   }

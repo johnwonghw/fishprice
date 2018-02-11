@@ -16,7 +16,7 @@ class Onboard extends Component {
       'Tiger Shrimp',
       'Pink Salmon'
     ],
-    selectedSpecies: '',
+    selectedSpecies: 'Koho Salmnon',
     locations: [
       'British Columbia', 
       'Prince Edward Island', 
@@ -24,10 +24,9 @@ class Onboard extends Component {
       'New Brunswick',
       'Quebec'
     ],
-    selectedLocation: ''
+    selectedLocation: 'British Columbia'
   }
-   
-   
+
   startOnboard = () => { 
     this.setState({
       choosingSpecies: true,
@@ -50,19 +49,21 @@ class Onboard extends Component {
     });
   }
 
+  
+  onChangeLocation = (event) => {
+    console.log('this is the location ' + event.target.value)
+    this.setState({
+      selectedLocation: event.target.value
+    });
+  }
+  
   onSubmitLocation = (event) => {
     this.setState({
       choosingLocation: false,
       finished: true
     });
     event.preventDefault();
-  }
-
-  onChangeLocation = (event) => {
-    console.log('this is the location ' + event.target.value)
-    this.setState({
-      selectedLocation: event.target.value
-    });
+    this.props.setFinalLocation(this.state.selectedLocation);
   }
 
   render() {
