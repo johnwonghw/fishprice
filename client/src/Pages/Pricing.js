@@ -95,10 +95,7 @@ class CurrentPage extends Component {
 							</div>
 						</div>
 					</div>
-<<<<<<< HEAD
 					<a href="#reportPostContainer" className="btn btn-primary">Report</a>
-=======
->>>>>>> f2af0c033a5c2bb744da5afc8f7d31ebca52bda1
 				</div>
 
 				<div id="reportPostContainer" style={{"height": "100vh"}}>
