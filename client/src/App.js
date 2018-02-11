@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Onboard from './containers/Onboard/Onboard';
 import Prices from './containers/Prices/Prices';
-
 class App extends Component {
 
   state = {
     onboard: true,
     prices: false,
+    explanation: false,
     speciesName: '',
     locationName: ''
   }
@@ -27,11 +27,26 @@ class App extends Component {
   showPrices = (resultsCreated) => {
     console.log("test " + resultsCreated)
     this.setState({
-      prices: resultsCreated
+      prices: resultsCreated,
+      onboard: !resultsCreated,
+      explanation: !resultsCreated
     });
   }
 
+  showExplanation = (displayExplanation) => {
+    this.setState({
+      // prices: !displayExplanation,
+      // onboard: !displayExplanation,
+      explanation: displayExplanation,
+    })
+  }
+
+
+
+
+
   render() {
+    console.log(this.state)
     return (
       <div className="App">
 
@@ -41,7 +56,7 @@ class App extends Component {
           showPrices={this.showPrices}
         /> : null }
         
-        {this.state.prices ? <Prices /> : null }
+        {this.state.prices ? <Prices showExplanation={this.showExplanation} /> : null }
 
         <footer>
           <span>&copy; 2018 FishPrice </span>
