@@ -10,7 +10,7 @@ import logo from '../assets/images/fish.png';
 import fadedFish from '../assets/images/fish-faded.png';
 import fish from '../assets/images/fish.png';
 import ReportPrice from '../components/ReportPrice';
-// import scrollToComponent from 'react-scroll-to-component';
+import scrollToComponent from 'react-scroll-to-component';
 import axios from 'axios';
 
 
@@ -38,6 +38,9 @@ class CurrentPage extends Component {
 		jQuery.post(url, postData)
 		.then((res) => {
 			console.log(res)
+			const { history } = this.props;
+			history.push("/forum");
+
 		})
 		console.log('postData', postData)
 	}
@@ -87,18 +90,22 @@ class CurrentPage extends Component {
 									<p className="price">${this.estimatePrice(outputList, selectedLocation, selectedSpecies)}<span>/lb</span></p>
 										<div className="row">
 											<div className="col-xs-10 col-xs-offset-1">
-												<p className="report-prompt">Help your fishing community find a fair price by reporting your recent sale.</p>
+												<p className="report-prompt">Help your fishing community find a fair price by reporting a recent sale.</p>
 											</div>
 										</div>
 										<a href="#reportPostContainer" className="fish-button">Report Your Catch</a>
+										<a href="#reportPostContainer">
+											<div className="arrow-container">
+												<i className="fas fa-angle-down" style={{fontSize: '70px', marginTop: '50px'}}></i>
+											</div>
+										</a>
 								</div>
 							</div>
 						</div>
 					</div>
-					<a href="#reportPostContainer" className="btn btn-primary">Report</a>
 				</div>
 
-				<div id="reportPostContainer" style={{"height": "100vh"}}>
+						<div id="reportPostContainer" className="Green" style={{ "height": "125vh" }}>
 					<ReportPrice submitForumPost={this.submitForumPost} onLocationChanged={this.onLocationChanged} onSpeciesChanged={this.onSpeciesChanged} textChange={this.textChange} />
 				</div>
 			</div>
