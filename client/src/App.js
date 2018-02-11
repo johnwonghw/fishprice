@@ -11,6 +11,8 @@ import Home from './Pages/Home';
 import Species from './Pages/Species';
 import LocationPage from './Pages/Location';
 import Pricing from './Pages/Pricing';
+import Marketplace from './Pages/Marketplace';
+
 // import ResetPassword from './Pages/ResetPassword';
 
 import { getSiteString, getSiteLanguages } from './API';
@@ -63,6 +65,7 @@ class App extends Component {
 					<Route exact path="/species" component={Species}/>
 					<Route exact path="/location" component={LocationPage}/>
 					<Route exact path="/pricing" component={Pricing}/>
+					<Route exact path="/marketplace" component={Marketplace}/>
 				</div>
             </Router>
         );

@@ -45,7 +45,8 @@ class CurrentPage extends Component {
 				</div>
             </div>
         );
-    }
+	}
+	
 	onChangeSpecies = (event) => {
 
 		var selectedSpecies = event.target.value;
@@ -54,6 +55,8 @@ class CurrentPage extends Component {
 		// 	selectedSpecies: selectedSpecies
 		// });
 		this.setData("selectedSpecies", selectedSpecies);
+
+
 
 	}
 	onPrevClicked =(event) => {
