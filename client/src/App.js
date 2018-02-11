@@ -44,6 +44,7 @@ class App extends Component {
         {this.state.prices ? <Prices /> : null }
 
         <footer>
+          <span>&copy; 2018 FishPrice </span>
         </footer>
       </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SpeciesSelector from '../../components/SpeciesSelector/SpeciesSelector';
 import LocationSelector from '../../components/LocationSelector/LocationSelector';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/fish.png';
 
 class Onboard extends Component {
 
@@ -94,9 +94,9 @@ class Onboard extends Component {
         <div className="row">
           <div className="col-xs-12 welcome-message">
             <img src={logo} alt="Site logo" className="img img-responsive logo" />
-            <h1>Welcome to Fishprice.</h1>
-            <h2 className="tagline">We help you swim through crowd sourcing fish prices.</h2>
-            <button onClick={this.startOnboard} className="btn btn-success">Get Started</button>
+            <h1 className="welcome">Welcome to FishPrice.</h1>
+            <h2 className="tagline">We help you swim through crowd sourcing.</h2>
+            <button onClick={this.startOnboard} className="fish-button">Get Started</button>
           </div>
         </div>
       </div>
