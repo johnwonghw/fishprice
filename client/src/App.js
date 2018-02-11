@@ -27,10 +27,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         { this.state.onboard ? <Onboard 
           setFinalSpecies={this.setFinalSpecies}
           setFinalLocation={this.setFinalLocation}
         /> : null }
+        <footer>
+        </footer>
       </div>
     );
   }
