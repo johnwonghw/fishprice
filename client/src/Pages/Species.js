@@ -52,7 +52,7 @@ class CurrentPage extends Component {
 									<h2>What are you <br /> fishing for today?</h2>
 									<label htmlFor="species-select">e.g. lobster</label>
 									<div className="select-wrapper">
-										<i className="fas fa-chevron-down"></i>
+										<i className="fa fa-chevron-down"></i>
 										<select id="species-select" defaultValue="0" onChange={this.onChangeSpecies} className="form-control">
 											<option disabled value="0"> Select </option>
 											{

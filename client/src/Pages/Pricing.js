@@ -9,6 +9,8 @@ import { fallbackValue, mkVector } from '../Tools';
 import logo from '../assets/images/fish.png';
 import fadedFish from '../assets/images/fish-faded.png';
 import fish from '../assets/images/fish.png';
+import Comments from '../components/Comments/Comments';
+
 class CurrentPage extends Component {
     componentDidMount(){
         var jQuery = window['jQuery'];
@@ -43,7 +45,7 @@ class CurrentPage extends Component {
 					<p>${this.estimatePrice(outputList, selectedLocation, selectedSpecies)} per pound</p>
 					<div className="btn-group">
 						<button className="btn btn-primary" onClick={this.onExplanationClick}>How Estimated</button>
-						<button className="btn btn-primary" onClick={this.onMarketplaceClick}>Marketplace</button>
+						<button className="btn btn-primary" onClick={this.onForumClick}>Forum</button>
 					</div>
 				</div>
             </div>
@@ -77,9 +79,9 @@ class CurrentPage extends Component {
 		history.push("/explanation");
 	}
 
-	onMarketplaceClick = (event) => {
+	onForumClick = (event) => {
 		const { history } = this.props;
-		history.push("/marketplace");
+		history.push("/forum");
 	}
 }
 export default connect(mapStateToProps)(CurrentPage);
