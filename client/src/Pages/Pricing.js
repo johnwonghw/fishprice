@@ -74,21 +74,31 @@ class CurrentPage extends Component {
 		
         return(
 			<div>
-				<div style={{"height": "100vh"}}>
+				<div style={{"height": "100vh", position: 'relative'}}>
 					<div>
 						<div className="button-navigation">
 							<div onClick={this.onPrevClicked}><i className="fas fa-chevron-left"></i></div>
-							<button type="submit" onClick={this.onNextClicked}>Home</button>
+							<button type="submit" onClick={this.onNextClicked}>FORUM</button>
 						</div>
-						{/* <img src={fish} alt="A fish" /> */}
-						<h2>Here is the Market Suggested Price for {selectedSpecies} in {selectedLocation}: </h2>
-						<p>${this.estimatePrice(outputList, selectedLocation, selectedSpecies)} per pound</p>
-						<div className="btn-group">
-							<button className="btn btn-primary" onClick={this.onExplanationClick}>How Estimated</button>
-							<button className="btn btn-primary" onClick={this.onMarketplaceClick}>Marketplace</button>
+						<div className="container">
+							<div className="row">
+										<div className="col-xs-12 pricing-page">
+									<h2>The suggested market <br /> price for <span>{selectedSpecies}</span> in <span>{selectedLocation}</span> is: </h2>
+									<p className="price">${this.estimatePrice(outputList, selectedLocation, selectedSpecies)}<span>/lb</span></p>
+										<div className="row">
+											<div className="col-xs-10 col-xs-offset-1">
+												<p className="report-prompt">Help your fishing community find a fair price by reporting your recent sale.</p>
+											</div>
+										</div>
+										<a href="#reportPostContainer" className="fish-button">Report Your Catch</a>
+								</div>
+							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
 					<a href="#reportPostContainer" className="btn btn-primary">Report</a>
+=======
+>>>>>>> f2af0c033a5c2bb744da5afc8f7d31ebca52bda1
 				</div>
 
 				<div id="reportPostContainer" style={{"height": "100vh"}}>
@@ -102,14 +112,10 @@ class CurrentPage extends Component {
 
 		var selectedSpecies = event.target.value;
 		console.log('this is the species: ' + selectedSpecies)
-		// this.setState({
-		// 	selectedSpecies: selectedSpecies
-		// });
+		
 		this.setData("selectedSpecies", selectedSpecies);
-
-
-
 	}
+
 	onPrevClicked = (event) => {
 		const { history } = this.props;
 		history.push("/location")
@@ -117,7 +123,7 @@ class CurrentPage extends Component {
 
 	onNextClicked = (event) => {
 		const { history } = this.props;
-		history.push("/");
+		history.push("/forum");
 	}
 
 	onExplanationClick = (event) => {
