@@ -14,19 +14,16 @@ class SpeciesSelector extends Component {
       <form onSubmit={this.props.onSubmitLocation}>
         <div className="container onboard">
           <div className="button-navigation">
-            <button onClick={this.props.onReturnToSpecies}>Go Back</button>
-            <input type="submit" value="next"></input>
+            <button onClick={this.props.onReturnToSpecies}><i className="fas fa-chevron-left"></i></button>
+            <input type="submit" value="NEXT"></input>
           </div>
           <div className="row">
             <div className="col-xs-12 col-sm-8 col-sm-offset-2 select-container">
-              <div className="form-group">
-                
-                  <h2>Where are you fishing today?</h2>
-                  <select onChange={this.props.onChangeLocation} className="form-control">
-                    {locations}
-                  </select>
-                  
-                
+              <div className="form-group">                
+                <h2>Where are you fishing today?</h2>
+                <select onChange={this.props.onChangeLocation} className="form-control">
+                  {locations}
+                </select>
               </div>
             </div>
           </div>
