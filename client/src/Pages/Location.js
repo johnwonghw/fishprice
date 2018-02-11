@@ -23,7 +23,7 @@ class CurrentPage extends Component {
 				<form onSubmit={this.props.onSubmitLocation}>
 					<div className="container onboard">
 						<div className="button-navigation">
-							<div onClick={this.props.onReturnToSpecies}><i className="fas fa-chevron-left"></i></div>
+							<div onClick={this.onPrevClicked}><i className="fas fa-chevron-left"></i></div>
 							<button type="submit" onClick={this.onNextClicked}>NEXT</button>
 						</div>
 						<div className="row">
@@ -60,6 +60,11 @@ class CurrentPage extends Component {
 	onNextClicked =(event)=>{
 		const { history } = this.props;
 		history.push("/pricing");
+	}
+
+	onPrevClicked = (event) => {
+		const { history } = this.props;
+		history.push("/species")
 	}
 }
 export default connect(mapStateToProps)(CurrentPage);

@@ -22,7 +22,7 @@ class CurrentPage extends Component {
 				<form onSubmit={this.props.onSubmitSpecies}>
 					<div className="container onboard">
 						<div className="button-navigation">
-							<div onClick={this.props.onReturnHome}>
+							<div onClick={this.onPrevClicked}>
 								<i className="fa fa-chevron-left"></i>
 							</div>
 							<button type="submit" onClick={this.onNextClicked}>NEXT</button>
@@ -66,6 +66,11 @@ class CurrentPage extends Component {
 	onNextClicked =(event)=>{
 		const { history } = this.props;
 		history.push("/location");
+	}
+
+	onPrevClicked = (event) => {
+		const { history } = this.props;
+		history.push("/")
 	}
 }
 export default connect(mapStateToProps)(CurrentPage);
