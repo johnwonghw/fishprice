@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SpeciesSelector from '../../components/SpeciesSelector/SpeciesSelector';
 import LocationSelector from '../../components/LocationSelector/LocationSelector';
-import fish from '../../assets/images/fish.png';
+import logo from '../../assets/images/logo.png';
 
 class Onboard extends Component {
 
@@ -70,12 +70,35 @@ class Onboard extends Component {
     this.props.showPrices(nextPriceCreated);
   } 
 
+  onReturnHome = () => {
+    this.setState({
+      choosingSpecies: false,
+      choosingLocation: false,
+      started: false,
+      finished: false
+    })
+  }
+
+  onReturnToSpecies = () => {
+    this.setState({
+      choosingLocation: false,
+      choosingSpecies: true,
+      finished: false,
+      started: true
+    })
+  }
+
   render() {
     const welcomeMessage = (
-      <div>
-        <img src={fish} alt="A fish" />
-        <h2>Welcome to Fishprice!</h2>
-        <button onClick={this.startOnboard}>Get Started</button>
+      <div className="container onboard">
+        <div className="row">
+          <div className="col-xs-12 welcome-message">
+            <img src={logo} alt="Site logo" className="img img-responsive logo" />
+            <h1>Welcome to Fishprice.</h1>
+            <h2 className="tagline">We help you swim through crowd sourcing fish prices.</h2>
+            <button onClick={this.startOnboard} className="btn btn-success">Get Started</button>
+          </div>
+        </div>
       </div>
     )
 
@@ -88,12 +111,14 @@ class Onboard extends Component {
           species={this.state.species}
           onSubmitSpecies={this.onSubmitSpecies}
           onChangeSpecies={this.onChangeSpecies}
+          onReturnHome={this.onReturnHome}
           /> : null}
 
         {this.state.choosingLocation ? <LocationSelector 
           locations={this.state.locations} 
           onSubmitLocation={this.onSubmitLocation}
           onChangeLocation={this.onChangeLocation}
+          onReturnToSpecies={this.onReturnToSpecies}
           /> : null }
         
       </div>
